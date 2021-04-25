@@ -4,11 +4,15 @@ import './css/index.css';
 import './css/main.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+import { ApolloProvider } from '@apollo/client';
+import { client } from './apollo';
+import { SnackbarProvider } from 'notistack';
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <ApolloProvider client={client}>
+    <SnackbarProvider maxSnack={3}>
+      <App />
+    </SnackbarProvider>
+  </ApolloProvider>,
   document.getElementById('root')
 );
 
