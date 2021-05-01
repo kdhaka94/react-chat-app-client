@@ -1,11 +1,25 @@
+import { useMutation } from '@apollo/client';
 import { useForm } from './useForm';
-
+import gpl from '../../graphql';
+import { useEffect } from 'react';
 export const LoginPage = (props) => {
   const [data, handleChange] = useForm({ email: '', password: '' });
-
+  // const [loginUser, { data: loginData, error, loading }] = useMutation(
+  //   LOGIN_USER
+  // );
   const handleLogin = () => {
-    console.log({ values: data });
+    console.log({ gpl }, 'Hello');
+    console.log('Hi');
+    // loginUser({ variables: data });
   };
+  // useEffect(() => {
+  //   if (loginData?.LoginUser) {
+  //     console.log({ loginData });
+  //   }
+  //   if (error) {
+  //     console.log({ error });
+  //   }
+  // }, [loginData, error]);
   return (
     <div className="login-page">
       <div className="circle-1">

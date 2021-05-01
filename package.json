@@ -17,6 +17,10 @@
     "react-scripts": "4.0.3",
     "web-vitals": "^1.1.1"
   },
+  "devDependencies": {
+    "customize-cra": "^1.0.0",
+    "react-app-rewired": "^2.1.6"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
