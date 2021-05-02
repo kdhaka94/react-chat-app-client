@@ -10,6 +10,7 @@
   display: flex;
   justify-content: center;
 }
+
 .login-page .circle-1 {
   width: 130vh;
   height: 130vh;
@@ -22,6 +23,7 @@
   justify-content: center;
   align-items: center;
 }
+
 .login-page .circle-1 .circle-2 {
   width: 80vh;
   height: 80vh;
@@ -44,9 +46,11 @@
   font-size: 1.2rem;
   font-family: 'Montserrat', sans-serif;
 }
+
 .login-page h1 {
   margin-bottom: 30px;
 }
+
 .btn {
   font-family: 'Montserrat', sans-serif;
   padding: 10px 15px;
@@ -56,12 +60,62 @@
   text-transform: uppercase;
   cursor: pointer;
 }
+
 .btn-login {
   background-color: rgb(204, 64, 56);
   font-size: 1.2rem;
   color: white;
   transition: 0.3s;
 }
+
 .btn-login:active {
   background-color: rgba(204, 64, 56, 0.54);
+}
+
+.sidebar {
+  position: absolute;
+  width: 361px;
+  height: 720px;
+  left: 0px;
+  top: 0px;
+  background: #2F19A9;
+}
+
+.sidebar h1 {
+  margin: 0 0 40 35;
+}
+
+.dialog-div {
+  position: absolute;
+  width: 305px;
+  height: 45px;
+  left: 28px;
+  top: 102px;
+  background: #243083;
+  border-radius: 40px;
+}
+
+.dialog-div input {
+  /* Search for users and me... */
+  position: absolute;
+  width: 242px;
+  height: 23px;
+  left: 48px;
+  top: 113px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 19px;
+  line-height: 23px;
+  color: #AEAEAE;
+}
+
+.dialog-div button {
+  position: absolute;
+  left: 23.2%;
+  right: 75.08%;
+  top: 15.83%;
+  bottom: 81.11%;
+  background: #E0E0E0;
+
 }
