@@ -9,6 +9,7 @@ import { MainPage } from '../MainPage';
 import ProfilePage from '../ProfilePage';
 import { LoginPage } from './LoginPage';
 import '../../css/main.css';
+import Messenger from 'components/Messenger';
 const isLoggedIn = localStorage.getItem('token');
 
 console.log(isLoggedIn);
@@ -20,8 +21,8 @@ export const LandingPage = (props) => {
         <Route exact path={['/ProfilePage', '/ProfilePage/:id']}>
           <ProfilePage />
         </Route>
-        <Route exact path="/">
-          {isLoggedIn ? <MainPage /> : <Redirect to="/Login" />}
+        <Route exact path={['/', '/:id']}>
+          {isLoggedIn ? <Messenger /> : <Redirect to="/Login" />}
         </Route>
       </Switch>
     </Router>
