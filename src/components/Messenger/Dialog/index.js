@@ -19,6 +19,8 @@ export default function Dialog() {
           </div>
         </>
       )}
+      {id && <>
+      </>}
     </div>
   );
 }
