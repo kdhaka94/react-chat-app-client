@@ -1,25 +1,34 @@
 import { useMutation } from '@apollo/client';
 import { useForm } from './useForm';
-import gpl from '../../graphql';
 import { useEffect } from 'react';
+import { LOGIN_USER } from 'graphql/func';
+import { useSnackbar } from 'notistack';
+import Loading from 'components/common/Loading';
+
 export const LoginPage = (props) => {
+  const { enqueueSnackbar } = useSnackbar();
   const [data, handleChange] = useForm({ email: '', password: '' });
-  // const [loginUser, { data: loginData, error, loading }] = useMutation(
-  //   LOGIN_USER
-  // );
+  const [
+    loginUser,
+    { data: loginData, error, loading },
+  ] = useMutation(LOGIN_USER, { fetchPolicy: 'no-cache' });
   const handleLogin = () => {
-    console.log({ gpl }, 'Hello');
     console.log('Hi');
-    // loginUser({ variables: data });
+    loginUser({ variables: data });
   };
-  // useEffect(() => {
-  //   if (loginData?.LoginUser) {
-  //     console.log({ loginData });
-  //   }
-  //   if (error) {
-  //     console.log({ error });
-  //   }
-  // }, [loginData, error]);
+
+  useEffect(() => {
+    if (loginData?.LoginUser) {
+      enqueueSnackbar(`Login successful`, {
+        variant: 'success',
+        preventDuplicate: true,
+      });
+      localStorage.setItem('token', `Bearer ${data.LoginUser.token}`);
+    }
+    if (error) {
+      console.log({ error: error.message });
+    }
+  }, [loginData, error]);
   return (
     <div className="login-page">
       <div className="circle-1">
@@ -39,9 +48,13 @@ export const LoginPage = (props) => {
             placeholder="Password"
             onChange={handleChange}
           />
-          <button onClick={handleLogin} className="btn btn-login">
-            Login
-          </button>
+          {!loading ? (
+            <button onClick={handleLogin} className="btn btn-login">
+              Login
+            </button>
+          ) : (
+            <Loading sm/>
+          )}
         </div>
       </div>
     </div>
